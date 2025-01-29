@@ -1,100 +1,88 @@
-import styled from "styled-components";
-import { fontsStyles } from "../../styles/themes/fonts";
+import styled from 'styled-components'
 
-export const HomeContainer = styled.div`
-    padding-bottom: 9.75rem;
-`;
+import { mixins } from '../../styles/mixins'
 
-export const Intro = styled.section`
-	display: flex;
-	align-items: space-between;
-	justify-content: center;
-	gap: 3.5rem;
+export const Hero = styled.section`
+  position: relative;
 
-	padding: 5.75rem 0;
+  img#hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-height: 544px;
+    width: 100vw;
+    object-fit: cover;
+  }
+`
 
-    > img {
-        max-width: 34rem;
-        width: 100%;
-        height: auto;
-    }
+export const HeroContent = styled.div`
+  max-width: 1160px;
+  padding: 92px 20px;
+  margin: 0 auto;
 
-    @media (max-width: 768px) {
-		flex-direction: column; /* Altera para layout vertical */
-		align-items: center; /* Centraliza os itens */
-		text-align: center; /* Opcional: centraliza o texto */
-		gap: 2rem; /* Ajusta o espaçamento entre os itens */
-	}
-`;
+  display: flex;
+  gap: 56px;
+  align-items: flex-start;
+  justify-content: space-between;
 
-export const IntroContent = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-`;
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 66px;
+  }
+`
 
 export const Heading = styled.div`
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 
-	h1 {
-		${fontsStyles.fonts.titleXL}
-		color: ${(props) => props.theme.baseTitle};
-	}
-	span {
-		${fontsStyles.fonts.textL}
-		color: ${(props) => props.theme.baseSubtitle};
-	}
-`;
+  > h1 {
+    ${mixins.fonts.titleXL}
+    color: ${({ theme }) => theme.colors['base-title']}
+  }
 
-export const Itens = styled.div`
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-row-gap: 1.25rem;
+  > span {
+    ${mixins.fonts.textL}
+    color: ${({ theme }) => theme.colors['base-subtitle']}
+  }
+`
 
-	margin-top: 4.125rem;
+export const Info = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 20px;
 
-	${fontsStyles.fonts.textM}
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 
-	div {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
+    svg {
+      padding: 8px;
+      border-radius: 999px;
+    }
+  }
+`
 
-		svg {
-			padding: 0.5rem;
-			border-radius: 50%;
-		}
-	}
-`;
+export const CoffeeList = styled.section`
+  max-width: 1160px;
+  padding: 32px 20px 150px;
+  margin: 0 auto;
 
-export const CoffeeList = styled.div`
-	display: flex;
-	flex-direction: column;
-	gap: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
 
-	h2 {
-		${fontsStyles.fonts.titleL}
-		color: ${(props) => props.theme.baseSubtitle};
-	}
+  > h2 {
+    ${mixins.fonts.titleL}
+    color: ${({ theme }) => theme.colors['base-subtitle']}
+  }
 
-	> div {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-column-gap: 2rem;
-		grid-row-gap: 2.5rem;
-
-		@media (max-width: 1200px) {
-			grid-template-columns: repeat(3, 1fr);
-		}
-
-		@media (max-width: 768px) {
-			grid-template-columns: repeat(2, 1fr);
-		}
-
-		@media (max-width: 480px) {
-			grid-template-columns: repeat(1, 1fr);
-		}
-	}
-`;
+  > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 40px;
+    grid-column-gap: 32px;
+  }
+`

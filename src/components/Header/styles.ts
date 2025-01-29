@@ -1,71 +1,72 @@
-import styled from "styled-components";
-import { fontsStyles } from "../../styles/themes/fonts";
+import styled from 'styled-components'
 
-export const HeaderContainer = styled.header`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+import { mixins } from '../../styles/mixins'
 
-	padding: 2rem 0;
-`;
+export const Container = styled.header`
+  max-width: 1160px;
+  padding: 32px 20px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
 
 export const Aside = styled.aside`
-	display: flex;
-	align-items: center;
-	gap: 0.75rem;
+  display: flex;
+  gap: 12px;
 
-	div {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.25rem;
+  div {
+    display: flex;
+    align-items: center;
+    gap: 4px;
 
-		background-color: ${(props) => props.theme.purpleLight};
+    background-color: ${({ theme }) => theme.colors['purple-light']};
 
-		padding: 0.5rem;
-		border-radius: 8px;
+    svg {
+      color: ${({ theme }) => theme.colors.purple};
+    }
 
-		${fontsStyles.fonts.textS}
+    span {
+      color: ${({ theme }) => theme.colors['purple-dark']};
+    }
 
-		svg {
-			color: ${(props) => props.theme.purple};
-		}
+    padding: 10px 8px;
+    border-radius: 6px;
+  }
 
-		span {
-			color: ${(props) => props.theme.purpleDark};
-		}
-	}
+  a {
+    display: flex;
+    align-items: center;
 
-	a {
-		display: flex;
-		align-items: center;
-		padding: 0.5rem;
-		border-radius: 8px;
+    background-color: ${({ theme }) => theme.colors['yellow-light']};
+    color: ${({ theme }) => theme.colors['yellow-dark']};
 
-		background-color: ${(props) => props.theme.yellowLight};
-		color: ${(props) => props.theme.yellowDark};
+    padding: 8px;
+    border-radius: 6px;
 
-		position: relative;
+    position: relative;
 
-		span {
-			${fontsStyles.fonts.textS}
-			color: ${(props) => props.theme.white};
+    &[aria-disabled='true'] {
+      pointer-events: none;
+    }
 
-			background-color: ${(props) => props.theme.yellowDark};
+    span {
+      ${mixins.fonts.textS};
+      font-weight: bold;
+      color: ${({ theme }) => theme.colors.white};
+      background-color: ${({ theme }) => theme.colors['yellow-dark']};
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-			border-radius: 50%;
-			width: 1.25rem;
-			height: 1.25rem;
-
-			display: flex;
-			align-items: center;
-			justify-content: center;
-
-			// Positioning the number of items in the cart
-			position: absolute;
-			top: 0;
-			right: 0;
-			transform: translate(50%, -50%);
-		}
-	}
-`;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      transform: translate(50%, -50%);
+    }
+  }
+`
